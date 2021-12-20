@@ -1,0 +1,109 @@
+package listoperations;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * @author acer
+ *
+ */
+public class ListOperations {
+	
+	// Java program to remove duplicates from ArrayList
+	  
+	
+	  
+	// Program to remove duplicates from a List in Java 8
+	
+	    public static void main(String[] args)
+	    {
+	        // input list with duplicates
+	    	
+	    	ArrayList<String> Strlist=new ArrayList<String>(Arrays.asList("abcd","abcd","abcd","hdr","hdr","rdc","xyz"));  
+	        List<Integer> Intlist = new ArrayList<>(
+	            Arrays.asList(1, 10, 1, 2, 2, 3, 10, 3, 3, 4, 5, 5));
+	            // Print the Arraylist
+	        System.out.println("String ArrayList with duplicates: "
+                    + Strlist);
+
+	        System.out.println("Integer ArrayList with duplicates: "
+	                           + Intlist);
+	  
+	        // Construct a new list from the set constucted from elements
+	        // of the original list
+	        List<Integer> newIntList = Intlist.stream()
+	                                      .distinct()
+	                                      .collect(Collectors.toList());
+	        List<String> newStrList = Strlist.stream()
+                    .distinct()
+                    .collect(Collectors.toList());
+
+	  
+	        // Print the ArrayList with duplicates removed
+	        System.out.println("Integer ArrayList with duplicates removed: "
+	                           + newIntList);
+	        
+//	        System.out.println("String ArrayList with duplicates removed: "
+//                    + newStrList);
+	        
+	        
+	        //Sorting arraylist
+	        
+//	  
+	        /* Collections.sort method is sorting the
+	        elements of ArrayList in ascending order. */
+	        Collections.sort(newStrList);
+	  
+	        // Let us print the sorted list
+	        System.out.println("List after the use of" +
+	                           " Collection.sort() :\n" + newStrList);
+	        
+	        System.out.println("String ArrayList with duplicates removed: "
+                    + newStrList);
+//	        FileWriter writer = new FileWriter("output.txt"); 
+//	        for(String str:) {
+//	          writer.write(str + System.lineSeparator());
+//	        }
+//	        writer.close();
+	    
+	     
+
+        try {
+  
+            // Create a FileWriter instance
+            
+        	FileWriter fw=new FileWriter("D:\\testout.txt");    
+            
+  
+            FileOutputStream writer;
+			// Write the above string to this writer
+            // This will put the string in the stream
+            // till it is printed on the console
+            writer.write(newStrList);
+            writer.write(newIntList);
+  
+            // Now clear the stream
+            // using flush() method
+            writer.flush();
+            writer.flush();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+	    		
+	    
+}
+
+	
+
+
